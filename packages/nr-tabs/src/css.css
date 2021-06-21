@@ -1,0 +1,50 @@
+:host {
+  display: block;
+}
+
+.tab-button {
+  text-decoration: none;
+  color: black;
+  background-color: #cccccc;
+  padding: 4px 8px;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  display: block;
+}
+
+.tab-button.active {
+  background-color: white;
+}
+
+#tabs-header {
+  display: flex;
+}
+
+#tabs-body {
+  position: relative;
+  border: 1px solid black;
+  flex-grow: 1;
+}
+
+::slotted(div) {
+  position: absolute;
+  display: none;
+  width: 100%;
+}
+
+::slotted(div.active) {
+  display: block;
+}
+
+.tab.active {
+  display: block;
+}
+
+#tabs {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}

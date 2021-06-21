@@ -1,0 +1,16 @@
+{
+  "name": "@nytramr/nr-iframe",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "martin.rubinsztein@gmail.com",
+  "license": "MIT",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "Custom Elements",
+    "WebComponents",
+    "Development"
+  ]
+}

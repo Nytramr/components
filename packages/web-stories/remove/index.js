@@ -1,0 +1,1 @@
+import '@nytramr/nr-tabs';

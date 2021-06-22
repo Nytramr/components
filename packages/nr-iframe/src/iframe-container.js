@@ -37,7 +37,7 @@ class IFrameContainer extends HTMLElement {
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
-    if (oldValue === newValue) {
+    if (name !== 'src' && oldValue === newValue) {
       return;
     }
 

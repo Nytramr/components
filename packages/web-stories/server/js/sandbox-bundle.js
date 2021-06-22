@@ -8,6 +8,7 @@
    * - CORS: Both parent and child must share same domain
    */
   document.domain = 'localhost';
+
   class IFrameBridge {
     static get version() {
       return '0.0.0';

@@ -21,11 +21,14 @@
     "url": "git@github.com-nytram:Nytramr/components.git"
   },
   "scripts": {
+    "build": "npx rollup -c",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
+    "http-server": "^0.12.3"
+  },
+  "devDependencies": {
     "@nytramr/nr-iframe": "^0.0.1",
-    "@nytramr/nr-tabs": "^0.0.1",
-    "@nytramr/utils": "^0.0.1"
+    "@nytramr/nr-tabs": "^0.0.1"
   }
 }

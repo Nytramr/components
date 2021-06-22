@@ -29,19 +29,19 @@
   flex-grow: 1;
 }
 
-::slotted(div) {
-  position: absolute;
+::slotted(*) {
+  position: relative;
   display: none;
   width: 100%;
 }
 
-::slotted(div.active) {
+::slotted(.active) {
   display: block;
 }
 
-.tab.active {
+/* #tabs-body .active {
   display: block;
-}
+} */
 
 #tabs {
   display: flex;

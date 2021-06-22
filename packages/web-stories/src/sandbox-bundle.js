@@ -1,4 +1,4 @@
-import IFrameBridge from '@nytramr/nr-iframe/lib/nr-iframe-container';
+import IFrameBridge from '@nytramr/nr-iframe/lib/nr-iframe-bridge';
 
 document.domain = 'localhost';
 

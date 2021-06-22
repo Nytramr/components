@@ -29,4 +29,17 @@ export default [
     },
     plugins: [resolve(), babel({ babelHelpers: 'bundled' })],
   },
+  {
+    input: 'remove/index.js',
+    output: {
+      file: 'server/js/main.js',
+      format: 'iife',
+      // plugins: [
+      //   terser({
+      //     mangle: { properties: { keep_quoted: true } },
+      //   }),
+      // ],
+    },
+    plugins: [resolve(), babel({ babelHelpers: 'bundled' })],
+  },
 ];

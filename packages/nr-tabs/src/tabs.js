@@ -54,7 +54,7 @@ class Tabs extends HTMLElement {
     const tab = this.querySelector(`#${tabId}`);
 
     const activeButton = this.shadowRoot.querySelector('.tab-button.active');
-    const activeTab = this.querySelector('div.active');
+    const activeTab = this.querySelector('.active');
 
     activeButton && activeButton.classList.remove('active');
     activeButton && activeButton.part.remove('active');

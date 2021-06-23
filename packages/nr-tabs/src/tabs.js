@@ -1,7 +1,5 @@
 import css from './css.css';
 
-const tagName = 'nr-tabs';
-
 class Tabs extends HTMLElement {
   constructor() {
     super();
@@ -76,4 +74,6 @@ class Tabs extends HTMLElement {
   }
 }
 
-customElements.define(tagName, Tabs);
+export default function define(tagName) {
+  customElements.define(tagName, Tabs);
+}

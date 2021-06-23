@@ -2,7 +2,6 @@
   'use strict';
 
   var css = ":host {\n  display: block;\n}\n\n.tab-button {\n  text-decoration: none;\n  color: black;\n  background-color: #cccccc;\n  padding: 4px 8px;\n  border-top: 1px solid black;\n  border-left: 1px solid black;\n  border-right: 1px solid black;\n  border-top-left-radius: 5px;\n  border-top-right-radius: 5px;\n  display: block;\n}\n\n.tab-button.active {\n  background-color: white;\n}\n\n#tabs-header {\n  display: flex;\n}\n\n#tabs-body {\n  position: relative;\n  border: 1px solid black;\n  flex-grow: 1;\n}\n\n::slotted(*) {\n  position: relative;\n  display: none;\n  width: 100%;\n}\n\n::slotted(.active) {\n  display: block;\n}\n\n/* #tabs-body .active {\n  display: block;\n} */\n\n#tabs {\n  display: flex;\n  flex-direction: column;\n  height: 100%;\n}\n";
-  const tagName = 'nr-tabs';
 
   class Tabs extends HTMLElement {
     constructor() {
@@ -76,6 +75,10 @@
 
   }
 
-  customElements.define(tagName, Tabs);
+  function define(tagName) {
+    customElements.define(tagName, Tabs);
+  }
+
+  define('nr-tabs');
 
 }());

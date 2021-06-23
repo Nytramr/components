@@ -48,7 +48,7 @@ section.configuration {
   padding: 10px;
 }
 
-nr-tabs {
+web-tabs {
   height: 100%;
 }
 
@@ -68,20 +68,20 @@ nav.nav-bar li {
   border: none;
 }
 
-nr-tabs::part(tab-body) {
+web-tabs::part(tab-body) {
   border: none;
 }
 
-nr-tabs::part(tab-header) {
+web-tabs::part(tab-header) {
   border-bottom: 2px solid grey;
 }
 
-nr-tabs::part(tab-button) {
+web-tabs::part(tab-button) {
   border: none;
   color: black;
   background: none;
 }
 
-nr-tabs::part(active) {
+web-tabs::part(active) {
   color: red;
 }

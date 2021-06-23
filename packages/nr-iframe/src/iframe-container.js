@@ -85,4 +85,6 @@ class IFrameContainer extends HTMLElement {
   }
 }
 
-window.customElements.define('nr-iframe-container', IFrameContainer);
+export default function define(tagName) {
+  customElements.define(tagName, IFrameContainer);
+}

@@ -22,6 +22,11 @@
   },
   "scripts": {
     "build": "npx rollup -c",
+    "build:watch": "npx rollup -c --watch",
+    "dev": "npx concurrently \"yarn run build:watch\" \"yarn run sass:watch\" \"yarn run serve\"",
+    "sass": "npx sass src/css/playground.scss server/css/playground.css",
+    "sass:watch": "npx sass --watch src/css/playground.scss server/css/playground.css",
+    "serve": "cd server && npx httpserver",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {

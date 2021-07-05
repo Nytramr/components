@@ -23,21 +23,4 @@ export default [
     external: ['@nytramr/utils'],
     plugins: [css(), babel({ babelHelpers: 'bundled' })],
   },
-  {
-    input: './src/iframe-bridge.js',
-    output: {
-      // name: '@nytramr/nr-tabs',
-      file: './lib/nr-iframe-bridge.js',
-      // format: 'umd',
-      format: 'es',
-      // banner: '#! /usr/bin/env node\n',
-      // plugins: [
-      //   terser({
-      //     mangle: { properties: { keep_quoted: true } },
-      //   }),
-      // ],
-    },
-    external: ['@nytramr/utils'],
-    plugins: [css(), babel({ babelHelpers: 'bundled' })],
-  },
 ];

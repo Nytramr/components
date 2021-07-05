@@ -51,6 +51,19 @@ class IFrameContainer extends HTMLElement {
   _loadIframeHandler() {
     console.log('handle');
     this.stopResizing = resizeIframe(this.iFrame);
+    this._bridge = this.iFrame.contentWindow.PUBLIC.IFrameBridge;
+
+    // trigger load event.
+    this.dispatchEvent(
+      new CustomEvent('load-content', {
+        composed: true,
+        bubbles: true,
+        cancelable: true,
+        detail: {
+          IFrameBridge: this._bridge,
+        },
+      }),
+    );
   }
 
   _unloadIframe() {
@@ -75,6 +88,7 @@ class IFrameContainer extends HTMLElement {
     const iFrame = document.createElement('iframe');
     iFrame.src = src;
     iFrame.addEventListener('load', this._loadIframeHandler);
+    iFrame.addEventListener('onloadstart', () => console.log('content'));
 
     this.iFrame = iFrame;
     this.shadowRoot.appendChild(iFrame);
@@ -82,6 +96,10 @@ class IFrameContainer extends HTMLElement {
 
   disconnectCallback() {
     this._unloadIframe();
+  }
+
+  get Bridge() {
+    return this._bridge;
   }
 }
 

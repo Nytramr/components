@@ -1,15 +1,19 @@
-import IFrameBridge from '@nytramr/nr-iframe/lib/nr-iframe-bridge';
+import IFrameBridge from './sandbox/iframe-bridge';
 
 document.domain = 'localhost';
-
-window.IFrameBridge = IFrameBridge;
-
 class MyBridge extends IFrameBridge {
-  init() {
+  constructor(...args) {
+    super(...args);
+  }
+  init({ events }) {
     console.log('Bridge init');
+    const elementsToBeListen = document.querySelectorAll('web-stories-main-component');
+
+    elementsToBeListen.forEach((elem) => {}, {});
   }
 }
 
 window.PUBLIC = {
+  ...window.PUBLIC,
   IFrameBridge: MyBridge,
 };

@@ -75,10 +75,10 @@
 
   }
 
-  function define(tagName) {
-    customElements.define(tagName, Tabs);
+  function define() {
+    customElements.define('nr-tabs', Tabs);
   }
 
-  define('nr-tabs');
+  define();
 
 }());

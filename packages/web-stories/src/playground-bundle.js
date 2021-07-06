@@ -1,8 +1,8 @@
-import defineIframe from '@nytramr/nr-iframe';
-import defineTabs from '@nytramr/nr-tabs';
+import { define as defineIframe } from '@nytramr/nr-iframe';
+import { define as defineTabs } from '@nytramr/nr-tabs';
 
-defineTabs('web-tabs');
-defineIframe('web-iframe-container');
+defineTabs();
+defineIframe();
 
 // document.addEventListener('load-content', (event) => console.log('load', event, event.target));
 document.addEventListener('DOMContentLoaded', (event) => {

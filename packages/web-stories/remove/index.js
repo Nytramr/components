@@ -1,3 +1,3 @@
-import defineTabs from '@nytramr/nr-tabs';
+import { define } from '@nytramr/nr-tabs';
 
-defineTabs('nr-tabs');
+define();

@@ -8,6 +8,12 @@
 document.domain = 'localhost';
 
 export default class IFrameBridge {
+  static get events() {
+    return {
+      PRINT_EVENT: 'Print event',
+    };
+  }
+
   static get version() {
     return '0.0.0';
   }

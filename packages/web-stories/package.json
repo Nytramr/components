@@ -30,6 +30,7 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
+    "flux-condenser": "^0.1.1",
     "http-server": "^0.12.3"
   },
   "devDependencies": {

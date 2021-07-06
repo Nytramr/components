@@ -1,3 +1,1 @@
-import define from './src/tabs';
-
-export default define;
+export { Tabs, define } from './src/tabs';

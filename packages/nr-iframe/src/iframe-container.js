@@ -12,7 +12,7 @@ import { resizeIframe } from '@nytramr/utils/lib/resize-Iframe';
 
 document.domain = 'localhost';
 
-class IFrameContainer extends HTMLElement {
+export class IFrameContainer extends HTMLElement {
   static get observedAttributes() {
     return ['src'];
   }
@@ -103,6 +103,6 @@ class IFrameContainer extends HTMLElement {
   }
 }
 
-export default function define(tagName) {
-  customElements.define(tagName, IFrameContainer);
+export function define() {
+  customElements.define('nr-iframe-container', IFrameContainer);
 }

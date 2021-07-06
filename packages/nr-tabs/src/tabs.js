@@ -1,6 +1,6 @@
 import css from './css.css';
 
-class Tabs extends HTMLElement {
+export class Tabs extends HTMLElement {
   constructor() {
     super();
     const shadowRoot = this.attachShadow({ mode: 'open' });
@@ -74,6 +74,6 @@ class Tabs extends HTMLElement {
   }
 }
 
-export default function define(tagName) {
-  customElements.define(tagName, Tabs);
+export function define() {
+  customElements.define('nr-tabs', Tabs);
 }

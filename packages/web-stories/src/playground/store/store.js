@@ -5,7 +5,6 @@ const storeName = Symbol('store6');
 const initialValue = { events: [] };
 
 const printEvent = function (state, payload) {
-  debugger;
   return {
     ...state,
     events: [payload, ...state.events],

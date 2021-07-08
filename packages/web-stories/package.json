@@ -16,6 +16,18 @@
   "publishConfig": {
     "access": "public"
   },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com-nytram:Nytramr/components.git"
@@ -27,14 +39,17 @@
     "sass": "npx sass src/css/playground.scss server/css/playground.css",
     "sass:watch": "npx sass --watch src/css/playground.scss server/css/playground.css",
     "serve": "cd server && npx httpserver",
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
+    "@nytramr/utils": "^0.0.1",
     "flux-condenser": "0.2.0",
     "http-server": "^0.12.3"
   },
   "devDependencies": {
     "@nytramr/nr-iframe": "^0.0.1",
-    "@nytramr/nr-tabs": "^0.0.1"
+    "@nytramr/nr-tabs": "^0.0.1",
+    "jest": "^27.0.6"
   }
 }

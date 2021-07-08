@@ -16,15 +16,31 @@
   "publishConfig": {
     "access": "public"
   },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com-nytram:Nytramr/components.git"
   },
   "scripts": {
     "build": "npx rollup -c",
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "peerDependencies": {
     "@nytramr/utils": "^0.0.1"
+  },
+  "devDependencies": {
+    "jest": "^27.0.6"
   }
 }

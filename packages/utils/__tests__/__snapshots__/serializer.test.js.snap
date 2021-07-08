@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@nytramr/utils Serializer stringify with no circular references returns Array 1`] = `"[1,2,3]"`;
+
+exports[`@nytramr/utils Serializer stringify with no circular references returns Array with Array 1`] = `"[1,2,3,[\\"a\\",\\"b\\",\\"c\\"]]"`;
+
+exports[`@nytramr/utils Serializer stringify with no circular references returns Object 1`] = `"{\\"a\\":1}"`;
+
+exports[`@nytramr/utils Serializer stringify with no circular references returns Object with Array 1`] = `"{\\"a\\":[1,2,3]}"`;
+
+exports[`@nytramr/utils Serializer stringify with no circular references returns Object with Object 1`] = `"{\\"a\\":{\\"b\\":1}}"`;

@@ -8,11 +8,9 @@
 document.domain = 'localhost';
 
 export default class IFrameBridge {
-  static get events() {
-    return {
-      PRINT_EVENT: 'Print event',
-    };
-  }
+  static events = {
+    PRINT_EVENT: 'Print event',
+  };
 
   static get version() {
     return '0.0.0';
@@ -22,7 +20,7 @@ export default class IFrameBridge {
     this.id = id;
     // this.readyDependency = dependencies.ready;
     // this.closePlugin = dependencies.closePlugin;
-    // this.events = dependencies.event;
+    this.eventManager = dependencies.eventManager;
     // this.errorDependency = dependencies.error;
   }
 
@@ -51,6 +49,11 @@ export default class IFrameBridge {
 
   sendEvent(type, data) {
     console.log(type, data);
+    switch (type) {
+      case IFrameBridge.events.PRINT_EVENT:
+        this.eventManager.printEvent(data.eventName, data.event);
+        break;
+    }
     // this.events.event(this.id, type, data);
   }
 

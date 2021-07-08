@@ -8,7 +8,7 @@ class MyBridge extends IFrameBridge {
   }
 
   notifyEvent(data) {
-    this.sendEvent(this.events.PRINT_EVENT, data);
+    this.sendEvent(IFrameBridge.events.PRINT_EVENT, data);
   }
 
   subscribeEvents(events) {

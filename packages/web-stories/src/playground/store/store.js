@@ -5,8 +5,10 @@ const storeName = Symbol('store6');
 const initialValue = { events: [] };
 
 const printEvent = function (state, payload) {
+  debugger;
   return {
-    count: state.count + 1,
+    ...state,
+    events: [payload, ...state.events],
   };
 };
 

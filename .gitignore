@@ -3,3 +3,4 @@ node_modules
 packages/web-stories/server/**/*.css
 packages/web-stories/server/**/*.map
 packages/web-stories/server/**/*.js
+*.log

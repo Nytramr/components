@@ -42,6 +42,7 @@
   },
   "devDependencies": {
     "@nytramr/utils": "^0.0.1",
+    "concurrently": "^6.2.0",
     "jest": "^27.0.6",
     "rollup": "^2.53.0",
     "rollup-plugin-import-css": "^3.0.0",

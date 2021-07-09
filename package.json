@@ -27,7 +27,7 @@
     "build:prod": "npx lerna run build",
     "build": "npx lerna run build --stream",
     "clean": "npx lerna clean",
-    "dev": "npx lerna run dev --stream",
+    "dev": "npx lerna run dev --parallel",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "publishConfig": {

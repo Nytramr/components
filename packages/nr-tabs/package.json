@@ -35,10 +35,13 @@
   },
   "scripts": {
     "build": "npx rollup -c",
+    "build:watch": "npx rollup -c --watch",
+    "dev": "yarn run build:watch",
     "test": "jest",
     "test:watch": "jest --watch"
   },
   "devDependencies": {
+    "concurrently": "^6.2.0",
     "jest": "^27.0.6",
     "rollup": "^2.53.0",
     "rollup-plugin-import-css": "^3.0.0",

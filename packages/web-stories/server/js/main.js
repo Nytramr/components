@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  var css = ":host {\n  display: block;\n}\n\n.tab-button {\n  text-decoration: none;\n  color: black;\n  background-color: #cccccc;\n  padding: 4px 8px;\n  border-top: 1px solid black;\n  border-left: 1px solid black;\n  border-right: 1px solid black;\n  border-top-left-radius: 5px;\n  border-top-right-radius: 5px;\n  display: block;\n}\n\n.tab-button.active {\n  background-color: white;\n}\n\n#tabs-header {\n  display: flex;\n}\n\n#tabs-body {\n  position: relative;\n  border: 1px solid black;\n  flex-grow: 1;\n}\n\n::slotted(*) {\n  position: relative;\n  display: none;\n  width: 100%;\n}\n\n::slotted(.active) {\n  display: block;\n}\n\n/* #tabs-body .active {\n  display: block;\n} */\n\n#tabs {\n  display: flex;\n  flex-direction: column;\n  height: 100%;\n}\n";
+  var css = ":host {\n  display: block;\n}\n\n.tab-button {\n  text-decoration: none;\n  color: black;\n  background-color: #cccccc;\n  padding: 4px 8px;\n  border-top: 1px solid black;\n  border-left: 1px solid black;\n  border-right: 1px solid black;\n  border-top-left-radius: 5px;\n  border-top-right-radius: 5px;\n  display: block;\n}\n\n.tab-button.active {\n  background-color: white;\n}\n\n#tabs-header {\n  display: flex;\n  flex-shrink: 0;\n}\n\n#tabs-body {\n  position: relative;\n  border: 1px solid black;\n  flex-grow: 1;\n  flex-shrink: 1;\n  min-height: 0px;\n}\n\n::slotted(*) {\n  position: relative;\n  display: none;\n  width: 100%;\n}\n\n::slotted(.active) {\n  display: block;\n}\n\n/* #tabs-body .active {\n  display: block;\n} */\n\n#tabs {\n  display: flex;\n  flex-direction: column;\n  height: 100%;\n  max-height: 100%;\n}\n";
 
   class Tabs extends HTMLElement {
     constructor() {
@@ -49,16 +49,37 @@
     }
 
     setActiveTab(tabId) {
-      const tabButton = this.shadowRoot.querySelector(`[data-tabid=${tabId}]`);
       const tab = this.querySelector(`#${tabId}`);
-      const activeButton = this.shadowRoot.querySelector('.tab-button.active');
       const activeTab = this.querySelector('.active');
-      activeButton && activeButton.classList.remove('active');
-      activeButton && activeButton.part.remove('active');
-      activeTab && activeTab.classList.remove('active');
-      tabButton && tabButton.classList.add('active');
-      tabButton && tabButton.part.add('active');
-      tab && tab.classList.add('active');
+      const beforeChangeEvent = new CustomEvent('beforechangetab', {
+        detail: {
+          activeTab,
+          nextTab: tab
+        },
+        cancelable: true,
+        composed: true
+      });
+      const proceed = this.dispatchEvent(beforeChangeEvent);
+
+      if (proceed) {
+        const tabButton = this.shadowRoot.querySelector(`[data-tabid=${tabId}]`);
+        const activeButton = this.shadowRoot.querySelector('.tab-button.active');
+        activeButton && activeButton.classList.remove('active');
+        activeButton && activeButton.part.remove('active');
+        activeTab && activeTab.classList.remove('active');
+        tabButton && tabButton.classList.add('active');
+        tabButton && tabButton.part.add('active');
+        tab && tab.classList.add('active'); // send change event
+
+        const changeEvent = new CustomEvent('changetab', {
+          detail: {
+            activeTab: tab
+          },
+          cancelable: true,
+          composed: true
+        });
+        this.dispatchEvent(changeEvent);
+      }
     }
 
     connectedCallback() {

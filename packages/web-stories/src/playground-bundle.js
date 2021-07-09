@@ -19,7 +19,13 @@ Array.from(iFrames).forEach((iFrame) => {
     console.log(Bridge.version);
     if (Bridge) {
       const instance = new Bridge('makeIdUnique', { eventManager });
-      instance.init({ events: [{ eventName: 'click' }] });
+      instance.init({
+        events: [
+          { eventName: 'click' },
+          { eventName: 'changetab', selector: 'nr-tabs' },
+          { eventName: 'beforechangetab', selector: 'nr-tabs' },
+        ],
+      });
     } else {
       console.log('no bridge');
     }

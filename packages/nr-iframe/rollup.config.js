@@ -1,7 +1,7 @@
 // import { terser } from 'rollup-plugin-terser';
 import css from 'rollup-plugin-import-css';
 // import { nodeResolve } from '@rollup/plugin-node-resolve';
-import babel from '@rollup/plugin-babel';
+// import babel from '@rollup/plugin-babel';
 
 // const resolve = require('@rollup/plugin-node-resolve');
 
@@ -9,7 +9,7 @@ export default [
   {
     input: './src/iframe-container.js',
     output: {
-      // name: '@nytramr/nr-tabs',
+      // name: '@nytramr/nr-iframe',
       file: './lib/nr-iframe-container.js',
       // format: 'umd',
       format: 'es',
@@ -20,7 +20,10 @@ export default [
       //   }),
       // ],
     },
-    external: ['@nytramr/utils'],
-    plugins: [css(), babel({ babelHelpers: 'bundled' })],
+    external: ['@nytramr/utils/lib/resize-Iframe'],
+    plugins: [
+      css(),
+      // babel({ babelHelpers: 'bundled' }),
+    ],
   },
 ];

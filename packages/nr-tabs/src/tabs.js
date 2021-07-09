@@ -48,19 +48,41 @@ export class Tabs extends HTMLElement {
   }
 
   setActiveTab(tabId) {
-    const tabButton = this.shadowRoot.querySelector(`[data-tabid=${tabId}]`);
     const tab = this.querySelector(`#${tabId}`);
-
-    const activeButton = this.shadowRoot.querySelector('.tab-button.active');
     const activeTab = this.querySelector('.active');
 
-    activeButton && activeButton.classList.remove('active');
-    activeButton && activeButton.part.remove('active');
-    activeTab && activeTab.classList.remove('active');
+    const beforeChangeEvent = new CustomEvent('beforechangetab', {
+      detail: {
+        activeTab,
+        nextTab: tab,
+      },
+      cancelable: true,
+      composed: true,
+    });
+    const proceed = this.dispatchEvent(beforeChangeEvent);
 
-    tabButton && tabButton.classList.add('active');
-    tabButton && tabButton.part.add('active');
-    tab && tab.classList.add('active');
+    if (proceed) {
+      const tabButton = this.shadowRoot.querySelector(`[data-tabid=${tabId}]`);
+      const activeButton = this.shadowRoot.querySelector('.tab-button.active');
+
+      activeButton && activeButton.classList.remove('active');
+      activeButton && activeButton.part.remove('active');
+      activeTab && activeTab.classList.remove('active');
+
+      tabButton && tabButton.classList.add('active');
+      tabButton && tabButton.part.add('active');
+      tab && tab.classList.add('active');
+
+      // send change event
+      const changeEvent = new CustomEvent('changetab', {
+        detail: {
+          activeTab: tab,
+        },
+        cancelable: true,
+        composed: true,
+      });
+      this.dispatchEvent(changeEvent);
+    }
   }
 
   connectedCallback() {

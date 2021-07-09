@@ -23,7 +23,8 @@
   },
   "scripts": {
     "serve": "cd packages/web-stories/server && npx httpserver",
-    "build": "npx lerna run build",
+    "build:prod": "npx lerna run build",
+    "build": "npx lerna run build --stream",
     "dev": "npx lerna run dev --stream",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },

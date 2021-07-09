@@ -1,5 +1,5 @@
 // import { terser } from 'rollup-plugin-terser';
-import resolve from '@rollup/plugin-node-resolve';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
 import babel from '@rollup/plugin-babel';
 
 export default [
@@ -14,7 +14,7 @@ export default [
       //   }),
       // ],
     },
-    plugins: [resolve(), babel({ babelHelpers: 'bundled' })],
+    plugins: [nodeResolve(), babel({ babelHelpers: 'bundled' })],
   },
   {
     input: 'src/sandbox-bundle.js',
@@ -27,7 +27,7 @@ export default [
       //   }),
       // ],
     },
-    plugins: [resolve(), babel({ babelHelpers: 'bundled' })],
+    plugins: [nodeResolve(), babel({ babelHelpers: 'bundled' })],
   },
   {
     input: 'remove/index.js',
@@ -40,6 +40,6 @@ export default [
       //   }),
       // ],
     },
-    plugins: [resolve(), babel({ babelHelpers: 'bundled' })],
+    plugins: [nodeResolve(), babel({ babelHelpers: 'bundled' })],
   },
 ];

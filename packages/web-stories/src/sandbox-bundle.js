@@ -1,4 +1,5 @@
 import IFrameBridge from './sandbox/iframe-bridge';
+import { render } from './sandbox/render-component';
 
 document.domain = 'localhost';
 class MyBridge extends IFrameBridge {
@@ -47,8 +48,9 @@ class MyBridge extends IFrameBridge {
       });
   }
 
-  init({ events }) {
-    console.log('Bridge init');
+  init({ events, tagName, props, content }) {
+    render(tagName, props, content);
+
     this.subscribeEvents(events);
   }
 }
